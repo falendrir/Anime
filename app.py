@@ -1,0 +1,44 @@
+# Import packages
+from dash import Dash, dcc, callback, Output, Input
+import pandas as pd
+import plotly.express as px
+import dash_mantine_components as dmc
+import dash_ag_grid as dag
+
+# Import data
+
+from data_loader import df_anime
+
+df = df_anime
+
+app = Dash()
+
+app.layout = dmc.MantineProvider(
+    dmc.Container([
+        dmc.Title("My First App with Data, Graph, and Controls", c="blue", order=3),
+        dmc.RadioGroup(
+           dmc.Group([dmc.Radio(i, value=i) for i in  ['episodes', 'duration', 'score']]),
+            id='my-dmc-radio-item',
+            value='lifeExp',
+            p="sm"
+        ),
+        dmc.SimpleGrid([
+            dag.AgGrid(
+                rowData=df.to_dict("records"),
+                columnDefs=[{"field": i} for i in df.columns],
+            ),
+            dcc.Graph(figure={}, id='graph-placeholder')
+        ], cols={"base": 1, "md": 2})
+    ], fluid=True)
+)
+
+@callback(
+    Output('graph-placeholder', 'figure'),
+    Input('my-dmc-radio-item', 'value')
+)
+def update_graph(col_chosen):
+    fig = px.histogram(df, x='type', y=col_chosen, histfunc='avg')
+    return fig
+
+if __name__ == '__main__':
+    app.run(debug=True)
