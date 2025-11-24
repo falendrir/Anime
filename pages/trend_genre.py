@@ -9,7 +9,7 @@ from data_loader import metric
 dash.register_page(__name__, name="Anime Trends by Genre", path="/trend_genre")
 
 layout = dmc.Container([
-    dmc.Title("Analytics", order=1, mb="lg"),
+    dmc.Title("Anime Trends by Genre", order=1, mb="lg"),
     dmc.SimpleGrid([
         dmc.Card([
             dmc.Text("Comedy", fw=500, c="dimmed", size="sm", ta='center'),
