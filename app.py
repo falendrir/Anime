@@ -44,9 +44,10 @@ app.layout = dmc.MantineProvider(
                                     id="nav-title"
                                 ),
                                 create_nav_link("tabler:home", "Accueil", "/"),
-                                create_nav_link("tabler:chart-line", "Analytics", "/analytics"),
-                                create_nav_link("tabler:settings", "Paramètres", "/parametres"),
+                                #create_nav_link("tabler:chart-line", "Analytics", "/analytics"),
+                                #create_nav_link("tabler:settings", "Paramètres", "/parametres"),
                                 create_nav_link("mdi:animation", "Anime Trends by Genre", "/trend_genre"),
+                                create_nav_link("grommet-icons:resources", "Sources", "/sources"),
                             ], p="md", gap="xs")
                         ],
                         id="navbar"
