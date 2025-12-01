@@ -2,10 +2,10 @@ import dash
 from dash import html
 import dash_mantine_components as dmc
 
-dash.register_page(__name__, name="Analytics")
+dash.register_page(__name__, name="Prevision")
 
 layout = dmc.Container([
-    dmc.Title("Analytics", order=1, mb="lg"),
+    dmc.Title("Prevision", order=1, mb="lg"),
     dmc.SimpleGrid([
         dmc.Card([
             dmc.Text("Métrique 1", fw=500, c="dimmed", size="sm", ta='center'),
