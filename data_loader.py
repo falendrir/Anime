@@ -39,4 +39,4 @@ manga_entries_value = manga_entries_value.melt(var_name="Type", value_name="Coun
 
 #print(df_anime_entries['demographic'].value_counts())
 
-print(df_characters[df_characters['name']=='Miyamoto Musashi'])
+#print(df_characters[df_characters['name']=='Miyamoto Musashi'])
